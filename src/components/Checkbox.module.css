@@ -1,0 +1,27 @@
+.notClicked {
+    fill: transparent;
+    border-radius: 100%;
+    border: 2px solid var(--blue);
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.notClicked:hover {
+    opacity: .75;
+    fill: var(--blue-dark);
+}
+
+.clicked {
+    fill: var(--purple-dark);
+    background-color: var(--gray-100);
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.clicked svg {
+    overflow: hidden;
+}

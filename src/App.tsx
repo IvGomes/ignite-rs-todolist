@@ -1,11 +1,10 @@
-import styles from './App.module.css';
-import { Input } from './components/Input';
+import { Checkbox } from "./components/Checkbox"
 
 function App() {
 
   return (
     <>
-      <Input />
+      <Checkbox />
     </>
   )
 }
