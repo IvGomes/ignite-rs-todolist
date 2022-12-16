@@ -1,24 +1,26 @@
-import { CheckCircle, Circle } from 'phosphor-react';
+import { useState } from 'react';
+import { Check } from 'phosphor-react';
 
 import styles from './Checkbox.module.css';
 
 
 export function Checkbox() {
+    const [checked, setChecked] = useState(false)
+
+    function handleCheck() {
+        setChecked(!checked)
+    }
 
 
     return (
-        <div className={styles.box}>
-            {/* <Circle
-                className={styles.notClicked}
-                weight="fill"
-                color="#4EA8DE"
+        <div onClick={handleCheck} className={checked ? styles.checked : styles.roundedBox}>
+            {
+                checked ? <Check
+                color="#FFFFFF"
                 size={16}
-            /> */}
-            <CheckCircle
-                className={styles.clicked}
-                weight="fill"
-                size={18}
-            />
+                weight={'bold'}
+            /> : null
+            }
         </div>
     )
 }

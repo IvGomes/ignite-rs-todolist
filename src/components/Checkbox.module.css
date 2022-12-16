@@ -1,27 +1,29 @@
-.notClicked {
-    fill: transparent;
+.roundedBox, .checked {
+    display: flex;
+    justify-content: center;
     border-radius: 100%;
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.roundedBox {
+    width: 1rem;
+    height: 1rem;
     border: 2px solid var(--blue);
-    font-size: 0;
-    line-height: 0;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
+}
+.roundedBox:hover {
+    background-color: var(--blue-dark);
 }
 
-.notClicked:hover {
-    opacity: .75;
-    fill: var(--blue-dark);
+.checked {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--purple-dark);
+    border: 2px solid var(--purple-dark);
 }
-
-.clicked {
-    fill: var(--purple-dark);
-    background-color: var(--gray-100);
-    font-size: 0;
-    line-height: 0;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
-}
-
-.clicked svg {
-    overflow: hidden;
+.checked:hover {
+    background-color: var(--purple);
+    border: 2px solid var(--purple);
 }
