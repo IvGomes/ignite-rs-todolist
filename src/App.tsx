@@ -1,10 +1,10 @@
-import { DeleteButton } from "./components/DeleteButton"
+import { CreateButton } from "./components/CreateButton"
 
 
 function App() {
 
   return (
-    <DeleteButton />
+    <CreateButton />
   )
 }
 

@@ -17,7 +17,7 @@
 
   /* FONTS ADJUSTS*/
   --text-base: 1rem; /* 12px */
-  --text-md: 12; /* 14px */
+  --text-md: .9rem; /* 14.4px */
   --text-lg: 1rem; /* 16px */
 
   --line-height: 140%;
