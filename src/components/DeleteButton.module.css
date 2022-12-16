@@ -1,0 +1,18 @@
+.box {
+    display: inline-flex;
+    padding: 5px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: var(--gray-400);
+}
+
+.icon {
+    color: var(--gray-300)
+}
+
+.box:hover .icon {
+    color: var(--danger)
+}

@@ -1,11 +1,10 @@
-import { Checkbox } from "./components/Checkbox"
+import { DeleteButton } from "./components/DeleteButton"
+
 
 function App() {
 
   return (
-    <>
-      <Checkbox />
-    </>
+    <DeleteButton />
   )
 }
 

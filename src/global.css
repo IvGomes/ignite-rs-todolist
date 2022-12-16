@@ -3,7 +3,7 @@
   --gray-700: #0d0d0d;
   --gray-600: #1a1a1a;
   --gray-500: #262626;
-  --gray-400: #0d0d0d;
+  --gray-400: #333333;
   --gray-300: #808080;
   --gray-200: #0d0d0d;
   --gray-100: #F2F2F2;
@@ -23,6 +23,7 @@
   --line-height: 140%;
 
   /* FORMS ADJUSTS */
+  --border-radius-sm: 4px;
   --border-radius: 8px;
 }
 
