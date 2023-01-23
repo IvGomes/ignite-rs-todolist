@@ -1,10 +1,15 @@
-import { CreateButton } from "./components/CreateButton"
+import { Header } from "./components/Header"
 
 
 function App() {
 
   return (
-    <CreateButton />
+    <>
+      <Header />
+      <main>
+          
+      </main>                                                                                                                                                                                                                                                                                                                                                   
+    </>
   )
 }
 
