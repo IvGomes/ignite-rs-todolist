@@ -5,9 +5,11 @@
     background-color: var(--blue-dark);
     padding: 1rem;
     border-radius: var(--border-radius);
+    align-items: center;
     font-size: var(--text-md);
     font-weight: bold;
     cursor: pointer;
+    border: none;
 }
 
 .box:hover {
