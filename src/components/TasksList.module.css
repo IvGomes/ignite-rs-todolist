@@ -1,0 +1,72 @@
+.container {
+    list-style: none;
+    padding: 0;
+}
+
+.newTaskContainer {
+    display: flex;
+    width: 100%;
+    background-color: var(--gray-500);
+    gap: 12px;
+    padding: 16px;
+    align-items: flex-start;
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+}
+
+.textWrapper {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.textWrapperChecked {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.textWrapperChecked p {
+    color: var(--gray-300);
+    margin: 0;
+    font-size: var(--text-md);
+    text-decoration: line-through;
+}
+
+.textWrapper p {
+    color: var(--gray-100);
+    margin: 0;
+    font-size: var(--text-md);
+}
+
+.newTaskRemoveIcon {
+    color: var(--gray-300);
+}
+
+
+.noTasksContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 24px;
+    border-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    font-size: var(--text-lg);
+}
+
+.noTasksIcon {
+    color: var(--gray-300);
+    margin-bottom: 16px;
+}
+
+.mainText {
+    color: var(--gray-300);
+    margin: 0;
+    font-weight: bold;
+}
+
+.secondaryText {
+    color: var(--gray-300);
+    margin: 0;
+}

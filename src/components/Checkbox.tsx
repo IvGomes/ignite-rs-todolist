@@ -4,18 +4,17 @@ import { Check } from 'phosphor-react';
 import styles from './Checkbox.module.css';
 
 
-export function Checkbox() {
-    const [checked, setChecked] = useState(false)
+interface CheckboxProps {
+    isChecked: boolean;
+}
 
-    function handleCheck() {
-        setChecked(!checked)
-    }
+export function Checkbox({isChecked}: CheckboxProps) {
 
 
     return (
-        <div onClick={handleCheck} className={checked ? styles.checked : styles.roundedBox}>
+        <div className={isChecked ? styles.checked : styles.roundedBox}>
             {
-                checked ? <Check
+                isChecked ? <Check
                 color="#FFFFFF"
                 size={16}
                 weight={'bold'}

@@ -1,4 +1,9 @@
-import { Header } from "./components/Header"
+import { Header } from "./components/Header";
+import { Input } from './components/Input';
+import { CreateButton } from './components/CreateButton';
+import TasksBoard from "./components/TasksBoard";
+
+import styles from "./App.module.css";
 
 
 function App() {
@@ -7,8 +12,12 @@ function App() {
     <>
       <Header />
       <main>
-          
-      </main>                                                                                                                                                                                                                                                                                                                                                   
+        <div className={styles.inputContainer}>
+          <Input />
+          <CreateButton />
+        </div>
+        <TasksBoard />
+      </main>
     </>
   )
 }
