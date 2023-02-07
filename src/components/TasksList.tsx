@@ -1,5 +1,4 @@
 import { ReactNode, useState } from "react";
-import uuid from 'react-uuid';
 
 import { FileDotted, Trash } from "phosphor-react";
 import styles from './TasksList.module.css';
@@ -25,7 +24,7 @@ interface ItemListProps {
 
 function Item({ children }: ItemListProps) {
     return (
-        <li key={uuid()}>
+        <li>
             {children}
         </li>
     )
@@ -49,22 +48,52 @@ function NoTasks() {
 }
 
 
-function NewTask() {
-    const [checked, setChecked] = useState(false)
+interface NewTaskProps {
+    taskId: string;
+    isChecked: boolean;
+    text: string;
+    stateManagement: any[];
+}
+
+interface TasksStateManagement {
+    id: string;
+    task: string;
+    resolved: boolean;
+}
+
+function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
+    const [taskChange, setTaskChange, tasks, setTasks] = stateManagement;
+    const [checked, setChecked] = useState(isChecked)
 
     function handleCheck() {
+        const newTasksState = tasks
+            .map((t: TasksStateManagement) => {
+                if (t.id === taskId) {
+                    const newT = {
+                        ...t,
+                        resolved: !checked
+                    }
+
+                    return newT
+                }
+
+                return t
+            })
+
         setChecked(!checked)
+        setTaskChange(!taskChange)
+        setTasks(newTasksState);
     }
 
 
     return (
-        <div className={styles.newTaskContainer}>
+        <div data-checkedState={checked} className={styles.newTaskContainer}>
             <span onClick={handleCheck}>
                 <Checkbox isChecked={checked} />
             </span>
             <span className={checked ? styles.textWrapperChecked : styles.textWrapper}>
                 <p>
-                    Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer
+                    {text}
                 </p>
             </span>
             <i className={styles.newTaskRemoveIcon}>
