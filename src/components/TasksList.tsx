@@ -3,6 +3,7 @@ import { ReactNode, useState } from "react";
 import { FileDotted, Trash } from "phosphor-react";
 import styles from './TasksList.module.css';
 import { Checkbox } from "./Checkbox";
+import { DeleteButton } from "./DeleteButton";
 
 
 interface RootProps {
@@ -96,9 +97,10 @@ function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
                     {text}
                 </p>
             </span>
-            <i className={styles.newTaskRemoveIcon}>
-                <Trash size={14} />
-            </i>
+            <DeleteButton
+                itemId={taskId}
+                stateManagement={[tasks, setTasks]}
+            />
         </div>
     )
 }

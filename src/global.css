@@ -60,3 +60,9 @@ main {
 :focus {
   outline: transparent;
 }
+
+@media screen and (max-width: 767px) {
+  main {
+    max-width: 90%;
+  }
+}

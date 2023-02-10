@@ -32,9 +32,13 @@ function App() {
 
   function getTasksOnStorage() {
     const tasksOnStorage = localStorage.getItem('listTasks');
-    const parsedTasksOnStorage = tasksOnStorage && JSON.parse(tasksOnStorage);
+    
+    if (tasksOnStorage) {
+      const parsedTasksOnStorage = JSON.parse(tasksOnStorage);
+      setTasks(parsedTasksOnStorage);
+    }
 
-    setTasks(parsedTasksOnStorage);
+    return;
   }
 
   useEffect(() => {
