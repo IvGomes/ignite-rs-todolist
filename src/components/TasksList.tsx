@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import { FileDotted, Trash } from "phosphor-react";
+import { FileDotted } from "phosphor-react";
 import styles from './TasksList.module.css';
 import { Checkbox } from "./Checkbox";
 import { DeleteButton } from "./DeleteButton";
@@ -53,6 +53,7 @@ interface NewTaskProps {
     taskId: string;
     isChecked: boolean;
     text: string;
+    theme: string;
     stateManagement: any[];
 }
 
@@ -62,7 +63,7 @@ interface TasksStateManagement {
     resolved: boolean;
 }
 
-function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
+function NewTask({theme, taskId, isChecked, text, stateManagement }: NewTaskProps) {
     const [taskChange, setTaskChange, tasks, setTasks] = stateManagement;
     const [checked, setChecked] = useState(isChecked)
 
@@ -88,16 +89,23 @@ function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
 
 
     return (
-        <div data-checkedState={checked} className={styles.newTaskContainer}>
+        <div
+            data-checkedState={checked}
+            className={`
+                ${styles[theme]}
+                ${styles.newTaskContainer}
+            `}
+        >
             <span onClick={handleCheck}>
                 <Checkbox isChecked={checked} />
             </span>
-            <span className={checked ? styles.textWrapperChecked : styles.textWrapper}>
+            <span className={`${styles[theme]} ${checked ? styles.textWrapperChecked : styles.textWrapper}`}>
                 <p>
                     {text}
                 </p>
             </span>
             <DeleteButton
+                theme={theme}
                 itemId={taskId}
                 stateManagement={[tasks, setTasks]}
             />

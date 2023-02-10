@@ -3,6 +3,7 @@ import styles from './DeleteButton.module.css';
 
 
 interface DeleteButtonProps {
+    theme: string;
     itemId: string;
     stateManagement: any[]
 }
@@ -13,8 +14,8 @@ interface TasksStateManagement {
     resolved: boolean;
 }
 
-export function DeleteButton({ itemId, stateManagement }: DeleteButtonProps) {
-    const [tasks, setTasks] = stateManagement;
+export function DeleteButton({theme, itemId, stateManagement }: DeleteButtonProps) {
+    const [tasks, setTasks, darkTheme] = stateManagement;
 
     function handleDeleteTask() {
         const tasksWithItemDeleted = tasks
@@ -24,8 +25,8 @@ export function DeleteButton({ itemId, stateManagement }: DeleteButtonProps) {
     }
 
     return (
-        <div className={styles.box} onClick={handleDeleteTask}>
-            <Trash className={styles.icon} />
+        <div className={`${styles[theme]} ${styles.box}`} onClick={handleDeleteTask}>
+            <Trash weight='bold' className={styles.icon} />
         </div>
     )
 }
