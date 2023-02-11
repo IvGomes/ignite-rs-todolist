@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+import { AboutModal } from "./AboutModal/";
+
 import { MoonStars, Question, SunHorizon } from "phosphor-react";
 import styles from './OverHeader.module.css';
 
@@ -9,14 +13,24 @@ interface OverHeaderProps {
 
 export function OverHeader({ isDarkTheme, stateManagement }: OverHeaderProps) {
     const [darkTheme, setDarkTheme] = stateManagement;
+    const [openModal, setOpenModal] = useState(false);
 
     function handleChangeTheme() {
         setDarkTheme(!darkTheme)
     }
 
+    function handleOpenModal() {
+        setOpenModal(!openModal)
+    }
+
+
+
 
     return (
         <div className={styles.container}>
+
+            { openModal ? <AboutModal toggle={handleOpenModal} /> : null}
+
             <div className={styles.buttonContainer}>
                 <button
                     className={`${styles.buttonRounded}`}
@@ -27,6 +41,7 @@ export function OverHeader({ isDarkTheme, stateManagement }: OverHeaderProps) {
                 </button>
                 <button
                     className={`${styles.buttonRounded}`}
+                    onClick={handleOpenModal}
                     title="Mais sobre o projeto"
                 >
                     <Question />

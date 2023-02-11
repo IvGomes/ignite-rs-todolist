@@ -1,0 +1,23 @@
+.fancerModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .75);
+    z-index: 99;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    background-color: var(--gray-100);
+    width: 50vw;
+    height: 70vh;
+    transform: translateY(-50%) translateX(50%);
+    z-index: 999;
+}

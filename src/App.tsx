@@ -3,15 +3,16 @@ import { Header } from "./components/Header";
 import { Input } from './components/Input';
 import { CreateButton } from './components/CreateButton';
 import TasksBoard from "./components/TasksBoard";
+import { OverHeader } from './components/OverHeaderNavigation';
 
 import styles from "./App.module.css";
-import { OverHeader } from "./components/OverHeader";
 
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(false);
   const [isLoadPage, setIsLoadPage] = useState(true);
   const [inputValue, setInputValue] = useState("");
+  const [modal, setModal] = useState(false);
   const [tasks, setTasks] = useState([]);
 
   const darkThemeIsActive = darkTheme ? 'darkTheme' : 'lightTheme';
