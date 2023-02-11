@@ -46,6 +46,7 @@
     width: 100%;
     align-items: flex-start;
     justify-content: left;
+    text-align: left;
 }
 
 .textWrapperChecked p {
