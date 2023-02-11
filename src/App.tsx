@@ -5,6 +5,7 @@ import { CreateButton } from './components/CreateButton';
 import TasksBoard from "./components/TasksBoard";
 
 import styles from "./App.module.css";
+import { OverHeader } from "./components/OverHeader";
 
 
 function App() {
@@ -52,10 +53,13 @@ function App() {
 
 
   return (
-    <section className={`
-      ${styles[darkThemeIsActive]}
-      ${styles.section}
-    `}>
+    <section
+      className={`
+        ${styles[darkThemeIsActive]}
+        ${styles.section}
+      `}
+    >
+      <OverHeader isDarkTheme={darkTheme} stateManagement={[darkTheme, setDarkTheme]} />
       <Header />
       <main>
         <form className={styles.inputContainer}>
@@ -67,7 +71,7 @@ function App() {
             stateManagement={[setTasks, inputValue, setInputValue]}
           />
         </form>
-        <TasksBoard 
+        <TasksBoard
           theme={darkThemeIsActive}
           stateManagement={[tasks, setTasks]}
         />
