@@ -64,11 +64,13 @@ function App() {
         </form>
         <TasksBoard stateManagement={[tasks, setTasks]} />
       </main>
-      <button
-        className={`${styles.buttonLinkVersion}`}
-      >
-        <span>Versão NextLevel</span>
-      </button>
+      <a href="https://ignite-rs-todolist.vercel.app">
+        <button
+          className={`${styles.buttonLinkVersion}`}
+        >
+          <span>Versão NextLevel</span>
+        </button>
+      </a>
     </>
   )
 }
