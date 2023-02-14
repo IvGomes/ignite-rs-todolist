@@ -8,16 +8,16 @@ interface AboutModalProps {
 export function AboutModal({ toggle }: AboutModalProps) {
     
     return (
-        <div>
+        <div className={styles.containerModal}>
             <div
                 className={styles.fancerModal}
                 onClick={toggle}
             >
             </div>
             <div className={styles.modal}>
-                <div className={styles.titleModal}>
+                <h1 className={styles.titleModal}>
                     Obrigado pelo seu apoio!
-                </div>
+                </h1>
                 <div className={styles.bodyModal}>
                     Esse projeto é uma melhoria (Next level) do primeiro desafio padrão da trilha ignite de especialização em React
                     da Rocketseat.
@@ -37,9 +37,9 @@ export function AboutModal({ toggle }: AboutModalProps) {
                     Tecnologias usadas:
                     ReactJS / Typescript
                 </div>
-                <div>
+                <footer>
                     <button onClick={toggle}>Fechar</button>
-                </div>
+                </footer>
             </div>
         </div>
     )

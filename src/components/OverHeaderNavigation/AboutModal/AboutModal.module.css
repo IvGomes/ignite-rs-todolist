@@ -1,3 +1,10 @@
+.containerModal {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .fancerModal {
     position: fixed;
     top: 0;
@@ -12,12 +19,46 @@
 }
 
 .modal {
-    position: absolute;
+    box-sizing: border-box;
+    position: fixed;
     top: 50%;
     display: flex;
-    background-color: var(--gray-100);
+    flex-direction: column;
     width: 50vw;
     height: 70vh;
-    transform: translateY(-50%) translateX(50%);
+    background-color: var(--gray-100);
+    padding: 10px 20px;
+    border-radius: 4px;
+    transform: translateY(-50%);
     z-index: 999;
+}
+
+.titleModal {
+    color: var(--purple-dark);
+    text-align: left;
+}
+
+.bodyModal {
+    text-align: left;
+}
+
+footer {
+    margin-top: auto;
+}
+
+footer button {
+    width: 100%;
+    color: var(--gray-100);
+    background-color: var(--purple-dark);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: var(--purple);
 }
