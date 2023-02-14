@@ -48,6 +48,9 @@ export function OverHeader({ isDarkTheme, stateManagement }: OverHeaderProps) {
                 </button>
                 <button
                     className={`${styles.buttonLinkVersion}`}
+                    onClick={ () => 
+                        window.open('https://ignite-rs-todolist-git-rocketseat-version-ivgomes.vercel.app')
+                    }
                 >
                     <span>Versão Rocketseat</span>
                 </button>
