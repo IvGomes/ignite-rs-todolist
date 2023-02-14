@@ -15,7 +15,7 @@ interface TasksStateManagement {
 }
 
 export function DeleteButton({theme, itemId, stateManagement }: DeleteButtonProps) {
-    const [tasks, setTasks, darkTheme] = stateManagement;
+    const [tasks, setTasks] = stateManagement;
 
     function handleDeleteTask() {
         const tasksWithItemDeleted = tasks

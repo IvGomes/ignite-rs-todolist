@@ -99,10 +99,17 @@ function NewTask({theme, taskId, isChecked, text, stateManagement }: NewTaskProp
             <span onClick={handleCheck}>
                 <Checkbox isChecked={checked} />
             </span>
-            <span className={`${styles[theme]} ${checked ? styles.textWrapperChecked : styles.textWrapper}`}>
-                <p>
+            <span className={`
+                ${styles[theme]} 
+                ${
+                    checked 
+                        ? styles.textWrapperChecked 
+                        : styles.textWrapper
+                }
+            `}>
+                <span className={styles.editableTextDefault} role="textbox" contentEditable={true}>
                     {text}
-                </p>
+                </span>
             </span>
             <DeleteButton
                 theme={theme}

@@ -12,7 +12,6 @@ function App() {
   const [darkTheme, setDarkTheme] = useState(false);
   const [isLoadPage, setIsLoadPage] = useState(true);
   const [inputValue, setInputValue] = useState("");
-  const [modal, setModal] = useState(false);
   const [tasks, setTasks] = useState([]);
 
   const darkThemeIsActive = darkTheme ? 'darkTheme' : 'lightTheme';
