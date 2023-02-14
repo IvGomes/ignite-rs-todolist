@@ -1,4 +1,4 @@
-import { Check, PencilLine } from 'phosphor-react';
+import { Check, PencilLine, X } from 'phosphor-react';
 import styles from './EditButton.module.css';
 
 
@@ -24,24 +24,35 @@ export function EditButton({
         <div>
             {
                 !isEditTask
-                    ?   <div
-                            className={`${styles[theme]} ${styles.box}`}
-                            onClick={onClickEdit}
+                    ? <div
+                        className={`${styles[theme]} ${styles.box}`}
+                        onClick={onClickEdit}
+                    >
+                        <PencilLine
+                            weight='bold'
+                            className={styles.icon}
+                        />
+                    </div>
+                    : <div className={styles.editControlContainer}>
+                        <div
+                            className={`${styles.box} ${styles.boxCancel}`}
+                            onClick={onClickCancel}
                         >
-                            <PencilLine
+                            <X
                                 weight='bold'
                                 className={styles.icon}
                             />
                         </div>
-                    :   <div
+                        <div
                             className={`${styles.box} ${styles.boxConfirm}`}
-                            onClick={onClickEdit}
+                            onClick={onClickConfirm}
                         >
                             <Check
                                 weight='bold'
                                 className={styles.icon}
                             />
                         </div>
+                    </div>
             }
         </div>
     )

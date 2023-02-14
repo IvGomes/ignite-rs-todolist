@@ -94,6 +94,33 @@ function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskPro
         setEditTask(!editTask)
     }
 
+    function handleConfirmEditTask() {
+        const editedTask = [...tasks]
+            .map((t: TasksStateManagement) => {
+                if (t.id !== taskId) {
+                    return t;
+                }
+
+                if (t.id === taskId) {
+                    const getEditedTask = document.getElementById(taskId)?.innerText;
+
+                    const edited = {
+                        ...t,
+                        task: getEditedTask
+                    }
+
+                    return edited;
+                }
+            })
+
+        setTasks(editedTask);
+        setEditTask(false)
+    }
+
+    function handleCancelEditTask() {
+        setEditTask(false)
+    }
+
 
     return (
         <div
@@ -104,7 +131,7 @@ function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskPro
             `}
         >
             <span onClick={handleCheck}>
-                { !editTask && <Checkbox isChecked={checked} /> }
+                {!editTask && <Checkbox isChecked={checked} />}
             </span>
             <span className={`
                 ${styles[theme]} 
@@ -113,7 +140,12 @@ function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskPro
                     : styles.textWrapper
                 }
             `}>
-                <span className={styles.editableTextDefault} role="textbox" contentEditable={editTask}>
+                <span
+                    id={taskId}
+                    className={styles.editableTextDefault}
+                    role="textbox"
+                    contentEditable={editTask}
+                >
                     {text}
                 </span>
             </span>
@@ -122,8 +154,8 @@ function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskPro
                 theme={theme}
                 stateManagement={[editTask, setEditTask]}
                 onClickEdit={handleEditTask}
-                onClickConfirm={handleEditTask}
-                onClickCancel={handleEditTask}
+                onClickConfirm={handleConfirmEditTask}
+                onClickCancel={handleCancelEditTask}
             />
             <DeleteButton
                 theme={theme}
