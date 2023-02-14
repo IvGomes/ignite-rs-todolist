@@ -1,0 +1,35 @@
+.lightTheme.box:hover {
+    background-color: var(--gray-100);
+}
+
+.darkTheme.box:hover {
+    background-color: var(--gray-400);
+}
+
+
+.box {
+    display: inline-flex;
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+
+.boxConfirm {
+    background-color: rgb(0, 202, 0);
+    padding: 5px;
+} .boxConfirm .icon {
+    color: var(--gray-100);
+    font-size: 20px;
+}
+
+
+.icon {
+    color: var(--gray-300)
+}
+
+.box:hover .icon {
+    color: var(--danger)
+}
+.boxConfirm:hover .icon {
+    color: var(--gray-200);
+}

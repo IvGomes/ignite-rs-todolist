@@ -4,6 +4,7 @@ import { FileDotted } from "phosphor-react";
 import styles from './TasksList.module.css';
 import { Checkbox } from "./Checkbox";
 import { DeleteButton } from "./DeleteButton";
+import { EditButton } from "./EditButton";
 
 
 interface RootProps {
@@ -63,9 +64,11 @@ interface TasksStateManagement {
     resolved: boolean;
 }
 
-function NewTask({theme, taskId, isChecked, text, stateManagement }: NewTaskProps) {
+function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskProps) {
     const [taskChange, setTaskChange, tasks, setTasks] = stateManagement;
-    const [checked, setChecked] = useState(isChecked)
+    const [checked, setChecked] = useState(isChecked);
+    const [editTask, setEditTask] = useState(false);
+
 
     function handleCheck() {
         const newTasksState = tasks
@@ -87,6 +90,10 @@ function NewTask({theme, taskId, isChecked, text, stateManagement }: NewTaskProp
         setTasks(newTasksState);
     }
 
+    function handleEditTask() {
+        setEditTask(!editTask)
+    }
+
 
     return (
         <div
@@ -97,20 +104,27 @@ function NewTask({theme, taskId, isChecked, text, stateManagement }: NewTaskProp
             `}
         >
             <span onClick={handleCheck}>
-                <Checkbox isChecked={checked} />
+                { !editTask && <Checkbox isChecked={checked} /> }
             </span>
             <span className={`
                 ${styles[theme]} 
-                ${
-                    checked 
-                        ? styles.textWrapperChecked 
-                        : styles.textWrapper
+                ${checked
+                    ? styles.textWrapperChecked
+                    : styles.textWrapper
                 }
             `}>
-                <span className={styles.editableTextDefault} role="textbox" contentEditable={true}>
+                <span className={styles.editableTextDefault} role="textbox" contentEditable={editTask}>
                     {text}
                 </span>
             </span>
+
+            <EditButton
+                theme={theme}
+                stateManagement={[editTask, setEditTask]}
+                onClickEdit={handleEditTask}
+                onClickConfirm={handleEditTask}
+                onClickCancel={handleEditTask}
+            />
             <DeleteButton
                 theme={theme}
                 itemId={taskId}
