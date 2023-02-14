@@ -32,7 +32,7 @@ function App() {
 
   function getTasksOnStorage() {
     const tasksOnStorage = localStorage.getItem('listTasks');
-    
+
     if (tasksOnStorage) {
       const parsedTasksOnStorage = JSON.parse(tasksOnStorage);
       setTasks(parsedTasksOnStorage);
@@ -64,6 +64,11 @@ function App() {
         </form>
         <TasksBoard stateManagement={[tasks, setTasks]} />
       </main>
+      <button
+        className={`${styles.buttonLinkVersion}`}
+      >
+        <span>Versão NextLevel</span>
+      </button>
     </>
   )
 }
