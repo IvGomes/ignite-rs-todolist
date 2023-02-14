@@ -2,10 +2,11 @@ import styles from './Input.module.css';
 
 
 interface InputProps {
+    theme: string;
     stateManagement: any[];
 }
 
-export function Input({ stateManagement }: InputProps) {
+export function Input({theme, stateManagement }: InputProps) {
     const [stateValue, setStateValue] = stateManagement;
 
 
@@ -13,7 +14,7 @@ export function Input({ stateManagement }: InputProps) {
         <input
             required
             id="inputTaskName"
-            className={styles.inner}
+            className={`${styles[theme]} ${styles.inner}`}
             name="value"
             type="text"
             placeholder="Adicione uma nova tarefa"

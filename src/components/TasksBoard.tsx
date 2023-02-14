@@ -6,6 +6,7 @@ import styles from './TasksBoard.module.css';
 
 
 interface TasksBoardProps {
+    theme: string;
     stateManagement: any[];
 }
 
@@ -15,12 +16,12 @@ interface TasksStateManagement {
     resolved: boolean;
 }
 
-export default function TasksBoard({ stateManagement }: TasksBoardProps) {
+export default function TasksBoard({theme, stateManagement }: TasksBoardProps) {
     const [taskChange, setTaskChange] = useState(false)
     const [resolvedTasks, setResolvedTasks] = useState('0')
 
     // state geral das tasks
-    const [tasks, setTasks] = stateManagement;
+    const [tasks, setTasks, darkThemeIsActive] = stateManagement;
 
     const tasksCountNumber = tasks.length;
     const isTask = tasksCountNumber !== 0;
@@ -70,11 +71,12 @@ export default function TasksBoard({ stateManagement }: TasksBoardProps) {
                                                 taskId={taskState.id}
                                                 isChecked={taskState.resolved}
                                                 text={taskState.task}
+                                                theme={theme}
                                                 stateManagement={[
                                                     taskChange,
                                                     setTaskChange,
                                                     tasks,
-                                                    setTasks
+                                                    setTasks,
                                                 ]}
                                             />
                                         </Tasks.Item>

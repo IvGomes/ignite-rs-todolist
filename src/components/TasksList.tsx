@@ -1,9 +1,10 @@
 import { ReactNode, useState } from "react";
 
-import { FileDotted, Trash } from "phosphor-react";
+import { FileDotted } from "phosphor-react";
 import styles from './TasksList.module.css';
 import { Checkbox } from "./Checkbox";
 import { DeleteButton } from "./DeleteButton";
+import { EditButton } from "./EditButton";
 
 
 interface RootProps {
@@ -53,6 +54,7 @@ interface NewTaskProps {
     taskId: string;
     isChecked: boolean;
     text: string;
+    theme: string;
     stateManagement: any[];
 }
 
@@ -62,9 +64,11 @@ interface TasksStateManagement {
     resolved: boolean;
 }
 
-function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
+function NewTask({ theme, taskId, isChecked, text, stateManagement }: NewTaskProps) {
     const [taskChange, setTaskChange, tasks, setTasks] = stateManagement;
-    const [checked, setChecked] = useState(isChecked)
+    const [checked, setChecked] = useState(isChecked);
+    const [editTask, setEditTask] = useState(false);
+
 
     function handleCheck() {
         const newTasksState = tasks
@@ -86,18 +90,75 @@ function NewTask({ taskId, isChecked, text, stateManagement }: NewTaskProps) {
         setTasks(newTasksState);
     }
 
+    function handleEditTask() {
+        setEditTask(!editTask)
+    }
+
+    function handleConfirmEditTask() {
+        const editedTask = [...tasks]
+            .map((t: TasksStateManagement) => {
+                if (t.id !== taskId) {
+                    return t;
+                }
+
+                if (t.id === taskId) {
+                    const getEditedTask = document.getElementById(taskId)?.innerText;
+
+                    const edited = {
+                        ...t,
+                        task: getEditedTask
+                    }
+
+                    return edited;
+                }
+            })
+
+        setTasks(editedTask);
+        setEditTask(false)
+    }
+
+    function handleCancelEditTask() {
+        setEditTask(false)
+    }
+
 
     return (
-        <div data-checkedState={checked} className={styles.newTaskContainer}>
+        <div
+            data-checkedState={checked}
+            className={`
+                ${styles[theme]}
+                ${styles.newTaskContainer}
+            `}
+        >
             <span onClick={handleCheck}>
-                <Checkbox isChecked={checked} />
+                {!editTask && <Checkbox isChecked={checked} />}
             </span>
-            <span className={checked ? styles.textWrapperChecked : styles.textWrapper}>
-                <p>
+            <span className={`
+                ${styles[theme]} 
+                ${checked
+                    ? styles.textWrapperChecked
+                    : styles.textWrapper
+                }
+            `}>
+                <span
+                    id={taskId}
+                    className={styles.editableTextDefault}
+                    role="textbox"
+                    contentEditable={editTask}
+                >
                     {text}
-                </p>
+                </span>
             </span>
+
+            <EditButton
+                theme={theme}
+                stateManagement={[editTask, setEditTask]}
+                onClickEdit={handleEditTask}
+                onClickConfirm={handleConfirmEditTask}
+                onClickCancel={handleCancelEditTask}
+            />
             <DeleteButton
+                theme={theme}
                 itemId={taskId}
                 stateManagement={[tasks, setTasks]}
             />

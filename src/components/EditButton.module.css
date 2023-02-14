@@ -1,0 +1,55 @@
+.lightTheme.box:hover {
+    background-color: var(--gray-100);
+}
+
+.darkTheme.box:hover {
+    background-color: var(--gray-400);
+}
+
+
+.editControlContainer {
+    display: flex;
+    gap: 5px
+}
+
+.box {
+    display: inline-flex;
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+
+.boxConfirm {
+    background-color: rgb(0, 202, 0);
+    padding: 5px;
+} .boxConfirm .icon {
+    color: var(--gray-100);
+    font-size: 20px;
+}
+
+.boxCancel {
+    background-color: var(--danger);
+    padding: 5px;
+} .boxCancel .icon {
+    color: var(--gray-100);
+    font-size: 20px;
+}
+
+
+.icon {
+    color: var(--gray-300)
+}
+
+.box:hover .icon {
+    color: var(--danger)
+}
+.boxConfirm:hover .icon {
+    color: var(--gray-200);
+} .boxConfirm:hover {
+    background-color: rgb(0, 165, 0);
+}
+.boxCancel:hover .icon {
+    color: var(--gray-200);
+} .boxCancel:hover {
+    background-color: red;
+}

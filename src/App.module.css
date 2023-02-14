@@ -6,3 +6,18 @@
     width: 100%;
     gap: 8px;
 }
+
+.section {
+    height: 100%;
+}
+
+
+.lightTheme,
+.lightTheme header {
+    background-color: var(--gray-100);
+}
+
+  
+.darkTheme {
+    background-color: var(--gray-600);
+}

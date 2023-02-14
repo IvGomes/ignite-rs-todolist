@@ -1,12 +1,17 @@
-.box {
-    display: inline-flex;
-    padding: 5px;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
+.lightTheme.box:hover {
+    background-color: var(--gray-100);
 }
 
-.box:hover {
+.darkTheme.box:hover {
     background-color: var(--gray-400);
+}
+
+
+.box {
+    display: inline-flex;
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
 }
 
 .icon {

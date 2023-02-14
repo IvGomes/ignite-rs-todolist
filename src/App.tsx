@@ -3,14 +3,18 @@ import { Header } from "./components/Header";
 import { Input } from './components/Input';
 import { CreateButton } from './components/CreateButton';
 import TasksBoard from "./components/TasksBoard";
+import { OverHeader } from './components/OverHeaderNavigation';
 
 import styles from "./App.module.css";
 
 
 function App() {
+  const [darkTheme, setDarkTheme] = useState(false);
   const [isLoadPage, setIsLoadPage] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState([]);
+
+  const darkThemeIsActive = darkTheme ? 'darkTheme' : 'lightTheme';
 
 
   function setTasksStorage() {
@@ -26,13 +30,11 @@ function App() {
 
     localStorage
       .setItem('listTasks', parsedTasks);
-
-    console.log('loaded LocalStorage')
   }
 
   function getTasksOnStorage() {
     const tasksOnStorage = localStorage.getItem('listTasks');
-    
+
     if (tasksOnStorage) {
       const parsedTasksOnStorage = JSON.parse(tasksOnStorage);
       setTasks(parsedTasksOnStorage);
@@ -51,20 +53,30 @@ function App() {
 
 
   return (
-    <>
+    <section
+      className={`
+        ${styles[darkThemeIsActive]}
+        ${styles.section}
+      `}
+    >
+      <OverHeader isDarkTheme={darkTheme} stateManagement={[darkTheme, setDarkTheme]} />
       <Header />
       <main>
         <form className={styles.inputContainer}>
           <Input
+            theme={darkThemeIsActive}
             stateManagement={[inputValue, setInputValue]}
           />
           <CreateButton
             stateManagement={[setTasks, inputValue, setInputValue]}
           />
         </form>
-        <TasksBoard stateManagement={[tasks, setTasks]} />
+        <TasksBoard
+          theme={darkThemeIsActive}
+          stateManagement={[tasks, setTasks]}
+        />
       </main>
-    </>
+    </section>
   )
 }
 

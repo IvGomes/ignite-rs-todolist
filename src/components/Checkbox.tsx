@@ -12,7 +12,9 @@ export function Checkbox({isChecked}: CheckboxProps) {
 
 
     return (
-        <div data-state={isChecked} className={`checkboxComponent ${isChecked ? styles.checked : styles.roundedBox}`}>
+        <div 
+            data-state={isChecked}
+            className={`checkboxComponent ${isChecked ? styles.checked : styles.roundedBox}`}>
             {
                 isChecked ? <Check
                 color="#FFFFFF"

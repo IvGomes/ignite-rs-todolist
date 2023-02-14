@@ -1,3 +1,20 @@
+.lightTheme.newTaskContainer {
+    background-color: var(--gray-200);
+    border-color: var(--gray-200);
+} .lightTheme.textWrapper span {
+    color: var(--gray-500);
+}
+
+.darkTheme.newTaskContainer {
+    background-color: var(--gray-500);
+    border-color: var(--gray-400);
+} .darkTheme.textWrapper span {
+    color: var(--gray-200);
+} .darkTheme.textWrapperChecked span {
+    color: var(--gray-300);
+}
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -8,12 +25,23 @@
 
 .newTaskContainer {
     display: flex;
-    background-color: var(--gray-500);
     gap: 12px;
     padding: 16px;
     align-items: flex-start;
     border-radius: 8px;
-    border: 1px solid var(--gray-400);
+    border-width: 1px;
+    border-style: solid; 
+}
+
+.editableTextDefault {
+    display: flex;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+} .editableTextDefault[contentEditable=true] {
+    background-color: var(--gray-100);
+    padding: 5px;
+    border: 2px solid var(--blue)
 }
 
 .textWrapper {
@@ -29,17 +57,16 @@
     width: 100%;
     align-items: flex-start;
     justify-content: left;
+    text-align: left;
 }
 
-.textWrapperChecked p {
-    color: var(--gray-300);
+.textWrapperChecked span {
     margin: 0;
     font-size: var(--text-md);
     text-decoration: line-through;
 }
 
-.textWrapper p {
-    color: var(--gray-100);
+.textWrapper span {
     margin: 0;
     font-size: var(--text-md);
 }
