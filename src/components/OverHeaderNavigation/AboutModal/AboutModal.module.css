@@ -24,8 +24,8 @@
     top: 50%;
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    height: 70vh;
+    width: 60vw;
+    height: 90vh;
     background-color: var(--gray-100);
     padding: 10px 20px;
     border-radius: 4px;
@@ -34,31 +34,60 @@
 }
 
 .titleModal {
+    display: flex;
     color: var(--purple-dark);
     text-align: left;
-}
-
-.bodyModal {
-    text-align: left;
-}
-
-footer {
-    margin-top: auto;
-}
-
-footer button {
-    width: 100%;
+} .titleModal button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     color: var(--gray-100);
     background-color: var(--purple-dark);
     padding: 10px;
     border: none;
     border-radius: 4px;
+    line-height: 0;
     text-transform: uppercase;
-    font-size: .8rem;
     font-weight: bold;
     cursor: pointer;
+} .titleModal button:hover {
+    background-color: var(--purple);
 }
 
-footer button:hover {
-    background-color: var(--purple);
+.bodyModal {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    text-align: left;
+}
+
+.details {
+    display: block;
+    height: 50%;
+    background-color: rgba(0, 0, 0, .030);
+    padding: 0 10px;
+    border-radius: 4px;
+    text-align: justify;
+    font-size: var(--text-md);
+    overflow: auto;
+} .details p {
+    line-height: 1.2rem;
+}
+
+.igniteLink {
+    color: #00875f;
+    text-decoration: none;
+    font-size: var(--text-lg);
+    font-weight: bold;
+} .igniteLink:hover {
+    text-decoration: underline;
+}
+
+ul h3 {
+    margin-left: -20px;
+}
+
+li {
+    font-size: var(--text-md);
+    margin-bottom: 5px;
 }
